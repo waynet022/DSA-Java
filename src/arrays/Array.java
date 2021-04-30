@@ -38,4 +38,16 @@ public class Array {
 
     }
 
+    public String toString(){
+        String arrayString = "[";
+        for(int i = 0; i < this.mainArray.length-1; i++){
+            arrayString += this.mainArray[i];
+            arrayString += ", ";
+        }
+        arrayString += this.mainArray[this.mainArray.length-1];
+        arrayString += "]";
+
+        return arrayString;
+    }
+
 }
