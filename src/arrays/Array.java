@@ -26,6 +26,15 @@ public class Array {
 
         for(int i = 0; i < temp.length; i++)
             this.mainArray[i] = temp[i];
+    }
+
+    public void removeAt(int index){
+        if(index >= 0 || index < this.length){
+            for(int i = index; i<this.mainArray.length-1; i++)
+                this.mainArray[i] = this.mainArray[i+1];
+
+            this.length--;
+        }
 
     }
 
