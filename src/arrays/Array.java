@@ -1,19 +1,19 @@
 package arrays;
 
 public class Array {
-    private int length;
+    private int size;
     private int[] mainArray;
 
     public Array(int length){
-        this.length = length;
+        this.size = 0;
         mainArray = new int[length];
     }
 
     public void insert(int number){
-        if(this.length >= this.mainArray.length)
+        if(this.size >= this.mainArray.length)
             this.copyArray();
-        this.mainArray[length] = number;
-        this.length++;
+        this.mainArray[size] = number;
+        this.size++;
     }
 
     private void copyArray(){
@@ -29,22 +29,22 @@ public class Array {
     }
 
     public void removeAt(int index){
-        if(index >= 0 || index < this.length){
+        if(index >= 0 || index < this.size){
             for(int i = index; i<this.mainArray.length-1; i++)
                 this.mainArray[i] = this.mainArray[i+1];
 
-            this.length--;
+            this.size--;
         }
 
     }
 
     public String toString(){
         String arrayString = "[";
-        for(int i = 0; i < this.mainArray.length-1; i++){
+        for(int i = 0; i < this.size-1; i++){
             arrayString += this.mainArray[i];
             arrayString += ", ";
         }
-        arrayString += this.mainArray[this.mainArray.length-1];
+        arrayString += this.mainArray[this.size-1];
         arrayString += "]";
 
         return arrayString;
