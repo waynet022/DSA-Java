@@ -11,11 +11,16 @@ public class ArraysMain {
         numbers.insert(30);
         numbers.insert(40);
         numbers.insert(50);
+        numbers.insert(45);
         numbers.removeAt(1);
         System.out.println(numbers.indexOf(30));
         System.out.println(numbers.toString());
 
-//        dynamic array
+        System.out.println("Maximum is " + numbers.max());
+
+    }
+    //dynamic array sample
+    public static void dynamicArray(){
         ArrayList<Integer> list = new ArrayList<>();
         list.add(10);
         list.add(20);
