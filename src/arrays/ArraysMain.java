@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class ArraysMain {
     public static void main(String[] args){
+
+        dynamicArray();
+        intersection();
+        
+    }
+
+    public static void intersection(){
         Array numbersA = new Array(5);
         Array numbersB = new Array(5);
         Array numbersC = new Array(5);
@@ -23,7 +30,6 @@ public class ArraysMain {
         System.out.println("Intersection of A-B "+intersectionAB.toString());
         System.out.println("Intersection of A-C "+intersectionAC.toString());
     }
-
     //dynamic array sample
     public static void dynamicArray(){
         ArrayList<Integer> list = new ArrayList<>();
