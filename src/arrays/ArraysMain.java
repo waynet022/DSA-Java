@@ -8,12 +8,24 @@ public class ArraysMain {
 
 //        dynamicArray();
 //        intersection();
-        reverse();
+//        reverse();
+        insertAt();
+    }
+
+    public static void insertAt(){
+        Array numbers = new Array(5);
+        for(int i = 0; i < 10; i++){
+            numbers.insert(i*2);
+        }
+        System.out.println(numbers.toString());
+        numbers.insertAt(4,100);
+        System.out.println(numbers.toString());
+
     }
 
     public static void reverse(){
         Array numbers = new Array(5);
-        for(int i = 0; i < 0; i++)
+        for(int i = 0; i < 10; i++)
             numbers.insert(i+3);
         System.out.println(numbers.toString());
         numbers.reverse();

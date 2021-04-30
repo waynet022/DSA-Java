@@ -78,6 +78,15 @@ public class Array {
         }
     }
 
+    public void insertAt(int index, int number){
+        this.insert(number);
+        for(int i = index; i < size-1; i++){
+            int temp = this.mainArray[i];
+            this.mainArray[i] = this.mainArray[size-1];
+            this.mainArray[size-1] = temp;
+        }
+    }
+
     public String toString(){
         if(this.size == 0)
             return "[]";
