@@ -6,9 +6,18 @@ import java.util.ArrayList;
 public class ArraysMain {
     public static void main(String[] args){
 
-        dynamicArray();
-        intersection();
-        
+//        dynamicArray();
+//        intersection();
+        reverse();
+    }
+
+    public static void reverse(){
+        Array numbers = new Array(5);
+        for(int i = 0; i < 0; i++)
+            numbers.insert(i+3);
+        System.out.println(numbers.toString());
+        numbers.reverse();
+        System.out.println(numbers.toString());
     }
 
     public static void intersection(){

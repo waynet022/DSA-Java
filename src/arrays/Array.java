@@ -68,7 +68,19 @@ public class Array {
         return outputArray;
     }
 
+    public void reverse(){
+        if(this.size > 1){
+            for(int i = 0; i < size/2; i++){
+                int temp = this.mainArray[i];
+                this.mainArray[i] = this.mainArray[size-1-i];
+                this.mainArray[size-1-i] = temp;
+            }
+        }
+    }
+
     public String toString(){
+        if(this.size == 0)
+            return "[]";
         String arrayString = "[";
         for(int i = 0; i < this.size-1; i++){
             arrayString += this.mainArray[i];
