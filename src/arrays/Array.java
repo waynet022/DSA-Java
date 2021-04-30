@@ -17,25 +17,32 @@ public class Array {
     }
 
     private void copyArray(){
-        int[] temp = new int[this.mainArray.length];
+        int[] temp = new int[this.mainArray.length*2];
 
         for(int i = 0; i < this.mainArray.length; i++)
             temp[i] = this.mainArray[i];
 
-        this.mainArray = new int[this.mainArray.length*2];
-
-        for(int i = 0; i < temp.length; i++)
-            this.mainArray[i] = temp[i];
+        this.mainArray= temp;
     }
 
     public void removeAt(int index){
-        if(index >= 0 || index < this.size){
+        if(index >= 0 && index < this.size){
             for(int i = index; i<this.mainArray.length-1; i++)
                 this.mainArray[i] = this.mainArray[i+1];
 
             this.size--;
         }
+        else
+            throw new IllegalArgumentException();
+    }
 
+    public int indexOf(int number){
+        if(size == 0)
+            return -1;
+        for(int i = 0; i < size; i++)
+            if(number == this.mainArray[i])
+                return i;
+        return -1;
     }
 
     public String toString(){
