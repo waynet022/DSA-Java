@@ -10,9 +10,10 @@ public class Array {
     }
 
     public void insert(int number){
-        if(this.length >= this.mainArray.length){
-
-        }
+        if(this.length >= this.mainArray.length)
+            this.copyArray();
+        this.mainArray[length] = number;
+        this.length++;
     }
 
     private void copyArray(){
