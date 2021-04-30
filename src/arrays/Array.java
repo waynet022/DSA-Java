@@ -37,26 +37,35 @@ public class Array {
     }
 
     public int indexOf(int number){
-        if(size == 0)
+        if(this.size == 0)
             return -1;
-        for(int i = 0; i < size; i++)
+        for(int i = 0; i < this.size; i++)
             if(number == this.mainArray[i])
                 return i;
         return -1;
     }
 
     public int max(){
-        if(size == 0)
+        if(this.size == 0)
             return 0;
-        else if(size == 1)
+        else if(this.size == 1)
             return this.mainArray[0];
         int maximum = this.mainArray[0];
 
-        for(int i = 1; i<size; i++)
+        for(int i = 1; i<this.size; i++)
             if(maximum < this.mainArray[i])
                 maximum = this.mainArray[i];
 
         return maximum;
+    }
+
+    public Array intersect(Array secondArray){
+        Array outputArray = new Array(5);
+        for(int i = 0; i < this.size; i++)
+            if(secondArray.indexOf(this.mainArray[i]) != -1)
+                outputArray.insert(this.mainArray[i]);
+
+        return outputArray;
     }
 
     public String toString(){

@@ -5,20 +5,25 @@ import java.util.ArrayList;
 
 public class ArraysMain {
     public static void main(String[] args){
-        Array numbers = new Array(3);
-        numbers.insert(10);
-        numbers.insert(20);
-        numbers.insert(30);
-        numbers.insert(40);
-        numbers.insert(50);
-        numbers.insert(45);
-        numbers.removeAt(1);
-        System.out.println(numbers.indexOf(30));
-        System.out.println(numbers.toString());
+        Array numbersA = new Array(5);
+        Array numbersB = new Array(5);
+        Array numbersC = new Array(5);
+        for(int i = 0; i < 10; i++){
+            numbersA.insert(i*2);
+            numbersB.insert(i*3);
+            numbersC.insert(i*40);
+        }
 
-        System.out.println("Maximum is " + numbers.max());
+        System.out.println(numbersA.toString());
+        System.out.println(numbersB.toString());
+        System.out.println(numbersC.toString());
 
+        Array intersectionAB = numbersA.intersect(numbersB);
+        Array intersectionAC = numbersA.intersect(numbersC);
+        System.out.println("Intersection of A-B "+intersectionAB.toString());
+        System.out.println("Intersection of A-C "+intersectionAC.toString());
     }
+
     //dynamic array sample
     public static void dynamicArray(){
         ArrayList<Integer> list = new ArrayList<>();
