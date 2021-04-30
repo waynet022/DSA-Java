@@ -45,6 +45,20 @@ public class Array {
         return -1;
     }
 
+    public int max(){
+        if(size == 0)
+            return 0;
+        else if(size == 1)
+            return this.mainArray[0];
+        int maximum = this.mainArray[0];
+
+        for(int i = 1; i<size; i++)
+            if(maximum < this.mainArray[i])
+                maximum = this.mainArray[i];
+
+        return maximum;
+    }
+
     public String toString(){
         String arrayString = "[";
         for(int i = 0; i < this.size-1; i++){
