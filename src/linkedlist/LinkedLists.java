@@ -10,8 +10,7 @@ public class LinkedLists {
     }
 
     public void addFirst(int value){
-        Node node = new Node();
-        node.value = value;
+        Node node = new Node(value);
         node.next = this.head;
         this.head = node;
         if(this.head.next == null)
@@ -19,8 +18,7 @@ public class LinkedLists {
     }
 
     public void addLast(int value){
-        Node node = new Node();
-        node.value = value;
+        Node node = new Node(value);
         if(this.head == null)
             this.head = node;
         else
@@ -110,8 +108,11 @@ public class LinkedLists {
         return output;
     }
 
-    private class Node{
-        private int value;
+    private static class Node{
+        private final int value;
         private Node next;
+        private Node(int value){
+            this.value = value;
+        }
     }
 }

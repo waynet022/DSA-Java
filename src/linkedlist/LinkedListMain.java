@@ -5,9 +5,9 @@ import java.util.LinkedList;
 public class LinkedListMain {
     public static void main(String[] args){
 //        linkedListsSample();
-//        LinkedListString();
+        LinkedListString();
 //        containsSample();
-        indexOfSample();
+//        indexOfSample();
     }
 
     public static void indexOfSample(){
