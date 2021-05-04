@@ -3,6 +3,7 @@ package linkedlist;
 public class LinkedLists {
 
     private Node head;
+    private Node last;
 
     public LinkedLists(){
 
@@ -12,16 +13,16 @@ public class LinkedLists {
         Node node = new Node();
         node.value = value;
         node.next = this.head;
-        head = node;
+        this.head = node;
+        if(this.head.next == null)
+            this.last = node;
     }
 
     public void addLast(int value){
         Node node = new Node();
         node.value = value;
-        Node currentNode = this.head;
-        while(currentNode.next != null)
-            currentNode = currentNode.next;
-        currentNode.next = node;
+        this.last.next = node;
+        this.last = node;
     }
 
     public void deleteFirst(){
@@ -32,9 +33,10 @@ public class LinkedLists {
 
     public void deleteLast(){
         Node currentNode = this.head;
-        while(currentNode.next != null && currentNode.next.next != null)
+        while(currentNode.next != this.last)
             currentNode = currentNode.next;
         currentNode.next = null;
+        this.last = currentNode;
     }
 
     public String toString(){
