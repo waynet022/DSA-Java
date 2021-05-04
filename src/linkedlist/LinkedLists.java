@@ -9,17 +9,27 @@ public class LinkedLists {
 
     }
 
+    private boolean isEmpty(){
+        return this.head == null;
+    }
+
+    private boolean isSingleElement(){
+        return this.head == this.last;
+    }
+
     public void addFirst(int value){
         Node node = new Node(value);
-        node.next = this.head;
-        this.head = node;
-        if(this.head.next == null)
-            this.last = node;
+        if(this.isEmpty())
+            this.head = this.last = node;
+        else{
+            node.next = this.head;
+            this.head = node;
+        }
     }
 
     public void addLast(int value){
         Node node = new Node(value);
-        if(this.head == null)
+        if(this.isEmpty())
             this.head = node;
         else
             this.last.next = node;
@@ -27,9 +37,9 @@ public class LinkedLists {
     }
 
     public void deleteFirst(){
-        if(this.head == null)
+        if(isEmpty())
             return;
-        if(this.head == this.last){
+        if(this.isSingleElement()){
             this.head = null;
             this.last = null;
         }
@@ -41,9 +51,9 @@ public class LinkedLists {
     }
 
     public void deleteLast(){
-        if(this.head == null)
+        if(this.isEmpty())
             return;
-        if(this.head == this.last){
+        if(this.isSingleElement()){
             this.head = null;
             this.last = null;
         }
