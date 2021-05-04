@@ -6,7 +6,17 @@ public class LinkedListMain {
     public static void main(String[] args){
 //        linkedListsSample();
 //        LinkedListString();
-        containsSample();
+//        containsSample();
+        indexOfSample();
+    }
+
+    public static void indexOfSample(){
+        LinkedLists list = new LinkedLists();
+        for(int i = 0; i<20; i++)
+            list.addFirst(i);
+        int value = 19;
+        System.out.println(list.toString());
+        System.out.println(list.indexOf(value));
     }
 
     public static void containsSample(){

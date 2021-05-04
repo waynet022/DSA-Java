@@ -75,6 +75,26 @@ public class LinkedLists {
         return false;
     }
 
+    public int indexOf(int value){
+        if(this.head == null)
+            return -1;
+        int index = 0;
+        Node currentNode = this.head;
+        boolean hasNext = true;
+
+        while(hasNext){
+            if(currentNode.value == value)
+                return index;
+            if(currentNode.next == null)
+                hasNext = false;
+            else{
+                currentNode = currentNode.next;
+                index++;
+            }
+        }
+        return -1;
+    }
+
     public String toString(){
         String output = "";
         if(this.head == null)
