@@ -13,6 +13,7 @@ public class LinkedListMain {
         list.addFirst(10);
         list.addFirst(20);
         list.addFirst(30);
+        list.addLast(100);
         System.out.println(list.toString());
     }
 

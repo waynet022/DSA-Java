@@ -15,6 +15,15 @@ public class LinkedLists {
         head = node;
     }
 
+    public void addLast(int value){
+        Node node = new Node();
+        node.value = value;
+        Node currentNode = this.head;
+        while(currentNode.next != null)
+            currentNode = currentNode.next;
+        currentNode.next = node;
+    }
+
     public String toString(){
         String output = "";
         Node currentNode = head;
