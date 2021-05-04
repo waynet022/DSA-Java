@@ -24,6 +24,19 @@ public class LinkedLists {
         currentNode.next = node;
     }
 
+    public void deleteFirst(){
+        Node temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+    }
+
+    public void deleteLast(){
+        Node currentNode = this.head;
+        while(currentNode.next != null && currentNode.next.next != null)
+            currentNode = currentNode.next;
+        currentNode.next = null;
+    }
+
     public String toString(){
         String output = "";
         Node currentNode = head;
