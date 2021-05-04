@@ -15,9 +15,9 @@ public class LinkedListMain {
         list.addFirst(30);
         list.addLast(100);
         list.addLast(100);
+        list.deleteFirst();
         list.deleteLast();
-        list.deleteLast();
-        list.deleteLast();
+        list.deleteFirst();
         System.out.println(list.toString());
     }
 

@@ -21,26 +21,47 @@ public class LinkedLists {
     public void addLast(int value){
         Node node = new Node();
         node.value = value;
-        this.last.next = node;
+        if(this.head == null)
+            this.head = node;
+        else
+            this.last.next = node;
         this.last = node;
     }
 
     public void deleteFirst(){
-        Node temp = this.head;
-        this.head = this.head.next;
-        temp.next = null;
+        if(this.head == null)
+            return;
+        if(this.head == this.last){
+            this.head = null;
+            this.last = null;
+        }
+        else{
+            Node temp = this.head;
+            this.head = this.head.next;
+            temp.next = null;
+        }
     }
 
     public void deleteLast(){
-        Node currentNode = this.head;
-        while(currentNode.next != this.last)
-            currentNode = currentNode.next;
-        currentNode.next = null;
-        this.last = currentNode;
+        if(this.head == null)
+            return;
+        if(this.head == this.last){
+            this.head = null;
+            this.last = null;
+        }
+        else{
+            Node currentNode = this.head;
+            while(currentNode.next != this.last)
+                currentNode = currentNode.next;
+            currentNode.next = null;
+            this.last = currentNode;
+        }
     }
 
     public String toString(){
         String output = "";
+        if(this.head == null)
+            return "";
         Node currentNode = head;
 
         while(currentNode.next != null){
