@@ -67,20 +67,7 @@ public class LinkedLists {
     }
 
     public boolean contains(int value){
-        if(this.head == null)
-            return false;
-
-        Node currentNode = this.head;
-        boolean hasNext = true;
-        while(hasNext){
-            if(currentNode.value == value)
-                return true;
-            if(currentNode.next == null)
-                hasNext = false;
-            else
-                currentNode = currentNode.next;
-        }
-        return false;
+       return indexOf(value) != -1;
     }
 
     public int indexOf(int value){
