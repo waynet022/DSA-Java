@@ -5,9 +5,18 @@ import java.util.LinkedList;
 public class LinkedListMain {
     public static void main(String[] args){
 //        linkedListsSample();
-        LinkedListString();
+//        LinkedListString();
+        containsSample();
     }
 
+    public static void containsSample(){
+        LinkedLists list = new LinkedLists();
+        for(int i = 20; i>0; i--)
+            list.addFirst(i);
+        int value = 100;
+        System.out.println(list.toString());
+        System.out.println(list.contains(value));
+    }
     public static void LinkedListString(){
         LinkedLists list = new LinkedLists();
         list.addFirst(10);
