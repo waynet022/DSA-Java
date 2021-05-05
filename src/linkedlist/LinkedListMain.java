@@ -9,7 +9,16 @@ public class LinkedListMain {
 //        containsSample();
 //        indexOfSample();
 //        toArraySample();
-        reverseSample();
+//        reverseSample();
+        kNodeSample();
+    }
+
+    public static void kNodeSample(){
+        LinkedLists list = new LinkedLists();
+        for(int i = 0; i < 10; i++)
+            list.addLast(i+100);
+        System.out.println(list.toString());
+        System.out.println(list.kFromEnd(4));
     }
 
     public static void reverseSample(){

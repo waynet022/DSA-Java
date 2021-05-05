@@ -153,8 +153,25 @@ public class LinkedLists {
             this.head.next = currentNode;
             currentNode = this.head;
         }
+    }
 
+    public int kFromEnd(int endIndex){
+        int mainIndex;
+        var currentNode = this.head;
+        for(mainIndex = 0; mainIndex < endIndex-1; mainIndex++){
+            currentNode = currentNode.next;
+        }
+        boolean hasNext = true;
+        var kNode = this.head;
+        while(hasNext){
+            currentNode = currentNode.next;
+            mainIndex++;
+            kNode = kNode.next;
 
+            if(currentNode.next == null) hasNext = false;
+        }
+
+        return kNode.value;
     }
 
     private static class Node{
