@@ -107,6 +107,17 @@ public class LinkedLists {
         return this.size;
     }
 
+    public int[] toArray(){
+        int[] array = new int[this.size];
+        var currentNode = this.head;
+        for(int i = 0; i < this.size; i++){
+            array[i] = currentNode.value;
+            currentNode = currentNode.next;
+        }
+
+        return array;
+    }
+
     public String toString(){
         String output = "";
         if(this.head == null)

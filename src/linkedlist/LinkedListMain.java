@@ -5,9 +5,18 @@ import java.util.LinkedList;
 public class LinkedListMain {
     public static void main(String[] args){
 //        linkedListsSample();
-        LinkedListString();
+//        LinkedListString();
 //        containsSample();
 //        indexOfSample();
+        toArraySample();
+    }
+
+    public static void toArraySample(){
+        LinkedLists list = new LinkedLists();
+        for(int i = 0; i < 10; i++)
+            list.addLast(i+100);
+        var array = list.toArray();
+        System.out.println(array);
     }
 
     public static void indexOfSample(){
@@ -38,6 +47,7 @@ public class LinkedListMain {
         list.deleteLast();
         list.deleteFirst();
         System.out.println(list.toString());
+        System.out.println(list.size());
     }
 
     public static void linkedListsSample(){
