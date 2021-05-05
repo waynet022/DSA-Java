@@ -1,12 +1,15 @@
 package linkedlist;
 
+import java.util.NoSuchElementException;
+
 public class LinkedLists {
 
     private Node head;
     private Node last;
+    private int size;
 
     public LinkedLists(){
-
+        this.size = 0;
     }
 
     private boolean isEmpty(){
@@ -25,6 +28,7 @@ public class LinkedLists {
             node.next = this.head;
             this.head = node;
         }
+        this.size++;
     }
 
     public void addLast(int value){
@@ -34,36 +38,45 @@ public class LinkedLists {
         else
             this.last.next = node;
         this.last = node;
+        this.size++;
     }
 
     public void deleteFirst(){
         if(isEmpty())
-            return;
+            throw new NoSuchElementException();
         if(this.isSingleElement()){
             this.head = null;
             this.last = null;
         }
         else{
-            Node temp = this.head;
-            this.head = this.head.next;
-            temp.next = null;
+            var secondNode = this.head.next;
+            this.head.next = null;
+            this.head = secondNode;
         }
+        this.size--;
     }
 
     public void deleteLast(){
         if(this.isEmpty())
-            return;
+            throw new NoSuchElementException();
         if(this.isSingleElement()){
             this.head = null;
             this.last = null;
         }
         else{
-            Node currentNode = this.head;
-            while(currentNode.next != this.last)
-                currentNode = currentNode.next;
-            currentNode.next = null;
-            this.last = currentNode;
+            this.last = getPrevious(this.last);;
+            this.last.next = null;
         }
+        this.size--;
+    }
+
+    private Node getPrevious(Node node){
+        var currentNode = this.head;
+        while(currentNode != null){
+            if(currentNode.next == node) return currentNode;
+            currentNode = currentNode.next;
+        }
+        return null;
     }
 
     public boolean contains(int value){
@@ -88,6 +101,10 @@ public class LinkedLists {
             }
         }
         return -1;
+    }
+
+    public int size(){
+        return this.size;
     }
 
     public String toString(){
