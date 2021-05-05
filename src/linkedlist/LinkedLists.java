@@ -181,8 +181,23 @@ public class LinkedLists {
 
     public int findMiddle(){
         if(this.isEmpty()) throw new NoSuchElementException();
-        if(this.isSingleElement()) return this.head.value;
+        if(this.isSingleElement())return this.head.value;
 
+        var rightNode = this.head;
+        var leftNode = this.head;
+        boolean hasNext = true;
+
+        while(hasNext){
+            rightNode = rightNode.next;
+            if(rightNode.next == null) hasNext = false;
+            else{
+                rightNode = rightNode.next;
+                leftNode = leftNode.next;
+                if(rightNode.next == null) hasNext = false;
+            }
+        }
+
+        return leftNode.value;
     }
 
     private static class Node{

@@ -10,7 +10,16 @@ public class LinkedListMain {
 //        indexOfSample();
 //        toArraySample();
 //        reverseSample();
-        kNodeSample();
+//        kNodeSample();
+        findMiddleSample();
+    }
+
+    public static void findMiddleSample(){
+        LinkedLists list = new LinkedLists();
+        for(int i = 0; i < 9; i++)
+            list.addLast(i);
+        System.out.println(list.toString());
+        System.out.println(list.findMiddle());
     }
 
     public static void kNodeSample(){
