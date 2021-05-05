@@ -18,7 +18,7 @@ public class LinkedListMain {
         for(int i = 0; i < 10; i++)
             list.addLast(i+100);
         System.out.println(list.toString());
-        System.out.println(list.kFromEnd(4));
+        System.out.println(list.kFromEnd(10));
     }
 
     public static void reverseSample(){

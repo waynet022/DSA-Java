@@ -156,10 +156,15 @@ public class LinkedLists {
     }
 
     public int kFromEnd(int endIndex){
+        if(this.head == null)
+            throw new NoSuchElementException();
         int mainIndex;
         var currentNode = this.head;
         for(mainIndex = 0; mainIndex < endIndex-1; mainIndex++){
-            currentNode = currentNode.next;
+            if(currentNode.next != null)
+                currentNode = currentNode.next;
+            else
+                throw new IndexOutOfBoundsException();
         }
         boolean hasNext = true;
         var kNode = this.head;
