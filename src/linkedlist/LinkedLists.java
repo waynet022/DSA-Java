@@ -110,11 +110,11 @@ public class LinkedLists {
     public int[] toArray(){
         int[] array = new int[this.size];
         var currentNode = this.head;
-        for(int i = 0; i < this.size; i++){
-            array[i] = currentNode.value;
+        int index = 0;
+        while(currentNode != null){
+            array[index++] = currentNode.value;
             currentNode = currentNode.next;
         }
-
         return array;
     }
 
