@@ -156,7 +156,7 @@ public class LinkedLists {
     }
 
     public int kFromEnd(int endIndex){
-        if(this.head == null)
+        if(this.isEmpty())
             throw new NoSuchElementException();
         int mainIndex;
         var currentNode = this.head;
@@ -177,6 +177,12 @@ public class LinkedLists {
         }
 
         return kNode.value;
+    }
+
+    public int findMiddle(){
+        if(this.isEmpty()) throw new NoSuchElementException();
+        if(this.isSingleElement()) return this.head.value;
+
     }
 
     private static class Node{
