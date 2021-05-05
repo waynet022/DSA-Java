@@ -8,7 +8,17 @@ public class LinkedListMain {
 //        LinkedListString();
 //        containsSample();
 //        indexOfSample();
-        toArraySample();
+//        toArraySample();
+        reverseSample();
+    }
+
+    public static void reverseSample(){
+        LinkedLists list = new LinkedLists();
+        for(int i = 0; i < 10; i++)
+            list.addLast(i+100);
+        System.out.println(list.toString());
+        list.reverse();
+        System.out.println(list.toString());
     }
 
     public static void toArraySample(){

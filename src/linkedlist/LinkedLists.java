@@ -133,6 +133,30 @@ public class LinkedLists {
         return output;
     }
 
+    public void reverse(){
+        if(this.isEmpty() || this.isSingleElement())
+            return;
+
+        boolean hasNext = true;
+        this.last = this.head;
+
+        Node currentNode = this.head;
+        Node savedNode = currentNode.next;
+        currentNode.next = null;
+
+        while(hasNext){
+            this.head = savedNode;
+            if(savedNode.next != null)
+                savedNode = savedNode.next;
+            else
+                hasNext = false;
+            this.head.next = currentNode;
+            currentNode = this.head;
+        }
+
+
+    }
+
     private static class Node{
         private final int value;
         private Node next;
