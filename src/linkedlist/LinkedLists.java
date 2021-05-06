@@ -220,6 +220,25 @@ public class LinkedLists {
         return output;
     }
 
+    public boolean hasLoop(){
+        var slowNode = this.head;
+        var fastNode = this.head;
+
+        int repeat;
+
+        while(true){
+            repeat = 1;
+            while(repeat%3 != 0){
+                fastNode = fastNode.next;
+                if(fastNode.next == null) return false;
+                if(slowNode == fastNode) return true;
+                repeat += 1;
+            }
+            slowNode = slowNode.next;
+            if(slowNode == fastNode) return true;
+        }
+    }
+
     private static class Node{
         private final int value;
         private Node next;
