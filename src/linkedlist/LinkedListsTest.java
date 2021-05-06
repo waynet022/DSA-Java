@@ -1,8 +1,20 @@
 package linkedlist;
 
+import org.junit.jupiter.api.BeforeEach;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedListsTest {
+
+    LinkedLists testList = new LinkedLists();
+
+    @BeforeEach
+    public void setUp(){
+        for(int i = 0; i < 10; i ++){
+            testList.addLast(i);
+            assert true;
+        }
+    }
 
     @org.junit.jupiter.api.Test
     void addFirst() {

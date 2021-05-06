@@ -179,25 +179,45 @@ public class LinkedLists {
         return kNode.value;
     }
 
-    public int findMiddle(){
+    public int[] findMiddle(){
         if(this.isEmpty()) throw new NoSuchElementException();
-        if(this.isSingleElement())return this.head.value;
+        int[] output;
+        if(this.isSingleElement()){
+            output = new int[1];
+            output[0] = this.head.value;
+            return output;
+        }
 
         var rightNode = this.head;
         var leftNode = this.head;
+        var midNode = this.head;
         boolean hasNext = true;
 
         while(hasNext){
             rightNode = rightNode.next;
-            if(rightNode.next == null) hasNext = false;
+            midNode = midNode.next;
+
+            if(rightNode.next == null){
+                hasNext = false;
+                output = new int[2];
+                output[0] = leftNode.value;
+                output[1] = midNode.value;
+                return output;
+            }
             else{
                 rightNode = rightNode.next;
                 leftNode = leftNode.next;
-                if(rightNode.next == null) hasNext = false;
+                if(rightNode.next == null){
+                    hasNext = false;
+                    output = new int[1];
+                    output[0] = midNode.value;
+                    return output;
+                }
             }
         }
-
-        return leftNode.value;
+        output = new int[1];
+        output[0] = midNode.value;
+        return output;
     }
 
     private static class Node{

@@ -1,5 +1,6 @@
 package linkedlist;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class LinkedListMain {
@@ -16,10 +17,10 @@ public class LinkedListMain {
 
     public static void findMiddleSample(){
         LinkedLists list = new LinkedLists();
-        for(int i = 0; i < 9; i++)
+        for(int i = 0; i < 4; i++)
             list.addLast(i);
         System.out.println(list.toString());
-        System.out.println(list.findMiddle());
+        System.out.println(Arrays.toString(list.findMiddle()));
     }
 
     public static void kNodeSample(){
