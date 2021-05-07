@@ -22,12 +22,12 @@ public class StacksMain {
     public static void reverseString(){
         String example = "great";
         Stack<Character> stack = new Stack<>();
-        for(int i = 0; i < example.length(); i++){
-            stack.push(example.charAt(i));
-        }
-        String output = "";
+        for(char ch: example.toCharArray())
+            stack.push(ch);
+
+        StringBuffer output = new StringBuffer();
         while(!stack.isEmpty()){
-            output+=stack.pop();
+            output.append(stack.pop());
         }
         System.out.println(output);
     }
