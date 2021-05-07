@@ -5,9 +5,28 @@ import java.util.Stack;
 public class StacksMain {
     public static void main(String[] args){
 //        normalStack();
-        reverseString();
+//        reverseString();
+        balanceExpressions();
 
     }
+
+    public static void balanceExpressions(){
+        String sample = "hello{}";
+        Stack<Character> stack = new Stack<>();
+        for(char ch: sample.toCharArray()){
+            if(ch=='{') stack.push(ch);
+            if(ch=='}'){
+                if(stack.isEmpty() || stack.peek()!='{'){
+                    System.out.println("Unbalanced");
+                    return;
+                }
+                else stack.pop();
+            }
+        }
+        if(!stack.isEmpty()) System.out.println("Unbalanced");
+        else System.out.println("Balanced");
+    }
+
 
     public static void normalStack(){
         Stack<Integer> stack = new Stack<>();
