@@ -29,7 +29,7 @@ class StacksMainTest {
     void balanceExpressionsTest(){
         String testString1 = "{}[]";
         String testString2 = "{}[";
-        String testString3 = "{}]";
+        String testString3 = "{1+2]";
         String testString4 = "";
 
         assert complexTestStack.balanceExpressions(testString1);

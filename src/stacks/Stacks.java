@@ -25,27 +25,30 @@ public class Stacks {
     public boolean balanceExpressions(String sample){
         Stack<Character> stack = new Stack<>();
         for(char ch: sample.toCharArray()){
-            if(ch=='{'||ch=='('||ch=='['||ch=='<')
+            if(this.isLeftBracket(ch))
                 stack.push(ch);
 
-            else if(ch=='}'){
-                if(!stack.isEmpty() && stack.peek()=='{') stack.pop();
-                else return false;
+            if(this.isRightBracket(ch)){
+                if(stack.isEmpty()) return false;
+                var top = stack.pop();
+                if(bracketsMatch(top,ch)) return false;
             }
-            else if(ch==']'){
-                if(!stack.isEmpty() && stack.peek()=='[') stack.pop();
-                else return false;
-            }
-            else if(ch==')'){
-                if(!stack.isEmpty() && stack.peek()=='(') stack.pop();
-                else return false;
-            }
-            else if(ch=='>'){
-                if(!stack.isEmpty() && stack.peek()=='<') stack.pop();
-                else return false;
-            }
-
         }
         return stack.isEmpty();
+    }
+
+    private boolean isLeftBracket(char ch){
+        return ch=='{'||ch=='('||ch=='['||ch=='<';
+    }
+
+    private boolean isRightBracket(char ch){
+        return ch=='}'||ch==')'||ch==']'||ch=='>';
+    }
+
+    private boolean bracketsMatch(char left, char right){
+        return  (right==')' && left != '(') ||
+                (right=='}' && left != '{') ||
+                (right==']' && left != '[') ||
+                (right=='>' && left != '<');
     }
 }
