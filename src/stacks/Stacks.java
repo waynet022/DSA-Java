@@ -13,7 +13,7 @@ public class Stacks {
 
     }
 
-    public static boolean balanceExpressions(String sample){
+    public static boolean bracketBalance(String sample){
         Stack<Character> stack = new Stack<>();
         for(char ch: sample.toCharArray()){
             if(isLeftBracket(ch))
