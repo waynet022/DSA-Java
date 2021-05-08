@@ -7,19 +7,34 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StacksMainTest {
 
-    Stacks testStack;
+    Stacks simpleTestStack;
+    Stacks complexTestStack;
 
     @BeforeEach
     public void setUp(){
-        testStack = new Stacks();
+        simpleTestStack = new Stacks();
+        complexTestStack = new Stacks();
     }
     @Test
     void validBalanceExpressionsTest() {
         String testString1 = "{}";
         String testString2 = "{{}";
         String testString3 = "{";
-        assert testStack.simpleBalanceExpressions(testString1);
-        assert !testStack.simpleBalanceExpressions(testString2);
-        assert !testStack.simpleBalanceExpressions(testString3);
+        assert simpleTestStack.simpleBalanceExpressions(testString1);
+        assert !simpleTestStack.simpleBalanceExpressions(testString2);
+        assert !simpleTestStack.simpleBalanceExpressions(testString3);
+    }
+
+    @Test
+    void balanceExpressionsTest(){
+        String testString1 = "{}[]";
+        String testString2 = "{}[";
+        String testString3 = "{}]";
+        String testString4 = "";
+
+        assert complexTestStack.balanceExpressions(testString1);
+        assert !complexTestStack.balanceExpressions(testString2);
+        assert !complexTestStack.balanceExpressions(testString3);
+        assert complexTestStack.balanceExpressions(testString4);
     }
 }
