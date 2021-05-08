@@ -7,7 +7,7 @@ public class Stacks {
 
     }
 
-    public boolean balanceExpressions(String sample){
+    public boolean simpleBalanceExpressions(String sample){
         Stack<Character> stack = new Stack<>();
         for(char ch: sample.toCharArray()){
             if(ch=='{') stack.push(ch);
@@ -19,8 +19,7 @@ public class Stacks {
                 else stack.pop();
             }
         }
-        if(!stack.isEmpty()) return false;
-        else return true;
+        return stack.isEmpty();
     }
 
 }

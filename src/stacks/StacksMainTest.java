@@ -18,8 +18,8 @@ class StacksMainTest {
         String testString1 = "{}";
         String testString2 = "{{}";
         String testString3 = "{";
-        assert testStack.balanceExpressions(testString1);
-        assert !testStack.balanceExpressions(testString2);
-        assert !testStack.balanceExpressions(testString3);
+        assert testStack.simpleBalanceExpressions(testString1);
+        assert !testStack.simpleBalanceExpressions(testString2);
+        assert !testStack.simpleBalanceExpressions(testString3);
     }
 }
