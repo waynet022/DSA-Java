@@ -33,7 +33,7 @@ public class Stacks {
     }
 
     public int pop(){
-        if(this.isEmpty()) throw new NoSuchElementException();
+        if(this.isEmpty()) throw new IllegalStateException();
 
         int output = this.stack[0];
         for(int i = 0; i < this.size; i++){
@@ -44,11 +44,18 @@ public class Stacks {
     }
 
     public int peek(){
+        if(this.size == 0) throw new IllegalStateException();
         return this.stack[0];
     }
 
     private boolean isEmpty(){
         return this.size == 0;
+    }
+
+    @Override
+    public String toString(){
+        var content = Arrays.copyOfRange(stack, 0, size);
+        return Arrays.toString(content);
     }
 
     public static boolean bracketBalance(String sample){
