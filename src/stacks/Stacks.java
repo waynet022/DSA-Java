@@ -35,17 +35,14 @@ public class Stacks {
     public int pop(){
         if(this.isEmpty()) throw new IllegalStateException();
 
-        int output = this.stack[0];
-        for(int i = 0; i < this.size; i++){
-            this.stack[i] = this.stack[i+1];
-        }
+        int output = this.stack[size-1];
         this.size--;
         return output;
     }
 
     public int peek(){
         if(this.size == 0) throw new IllegalStateException();
-        return this.stack[0];
+        return this.stack[size-1];
     }
 
     private boolean isEmpty(){
