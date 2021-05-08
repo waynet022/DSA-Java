@@ -12,7 +12,7 @@ public class Stacks {
     public Stacks(){
 
     }
-    
+
     public static boolean balanceExpressions(String sample){
         Stack<Character> stack = new Stack<>();
         for(char ch: sample.toCharArray()){
