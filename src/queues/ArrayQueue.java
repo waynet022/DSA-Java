@@ -40,8 +40,10 @@ public class ArrayQueue {
         this.queue[front] = 0;
         this.size--;
 
-        if(!isEmpty())
+        if(!isEmpty()){
             this.front++;
+            this.front = this.front%queue.length;
+        }
         return output;
     }
 
