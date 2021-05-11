@@ -12,6 +12,8 @@ public class Stacks {
 
     private int[] stack;
     private int size;
+    private int min;
+    private int max;
 
     public Stacks(){
         this.stack = new int[5];
