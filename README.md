@@ -1,2 +1,13 @@
-# Java-Data-Structures-Algorithms
-Practice
+## Data Structures and Algorithms
+
+#### Arrays
+
+#### Linked Lists
+
+#### Stacks
+
+#### Queues
+
+#### Priority Queues
+
+#### Hash Tables
