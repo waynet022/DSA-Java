@@ -20,45 +20,48 @@ public class HashTable {
 
     public void put(int key, String value){
 
-        int index = getIndexByKey(key);
-        if(data[index]==null)
-            data[index] = new LinkedList<>();
-        var bucket = data[index];
-        for(var e: bucket){
-            if(e.key == key){
-                e.value = value;
-                return;
-            }
+        var entry = getEntry(key);
+        if(entry != null){
+            entry.value = value;
+            return;
         }
-
-        bucket.addLast(new Entry(key,value));
-
+        getOrCreateBucket(key).add(new Entry(key,value));
     }
 
     public String get(int key){
-        int index = getIndexByKey(key);
-        var bucket = data[index];
-        if(bucket!=null){
-            for(Entry e: bucket){
-                if(e.key == key)
-                    return e.value;
-            }
-        }
-        return null;
+        Entry entry = getEntry(key);
+        return (entry==null) ? null: entry.value;
     }
 
     public void remove(int key){
-        int index = getIndexByKey(key);
-        var bucket = data[index];
-        if(bucket==null)
+        var entry = getEntry(key);
+        if(entry == null)
             throw new IllegalStateException();
-        for(Entry e: bucket){
-            if(e.key == key){
-                bucket.remove(e);
-                return;
+        getBucket(key).remove(entry);
+    }
+
+    private LinkedList<Entry> getBucket(int key){
+        return data[getIndexByKey(key)];
+    }
+
+    private LinkedList<Entry> getOrCreateBucket(int key){
+        var index = getIndexByKey(key);
+        var bucket = data[index];
+        if(bucket == null)
+            data[index] = new LinkedList<>();
+
+        return bucket;
+    }
+
+    private Entry getEntry(int key){
+        var bucket = getBucket(key);
+        if(bucket!=null){
+            for(var entry: bucket){
+                if(entry.key == key)
+                    return entry;
             }
         }
-        throw new IllegalStateException();
+        return null;
     }
 
     private int getIndexByKey(int key){
