@@ -19,9 +19,20 @@ public class HashTable {
     }
 
     public void put(int key, String value){
-        Entry entry = new Entry(key,value);
+
         int index = getIndexByKey(key);
-        this.data[index].add(entry);
+        if(data[index]==null)
+            data[index] = new LinkedList<>();
+        var bucket = data[index];
+        for(var e: bucket){
+            if(e.key == key){
+                e.value = value;
+                return;
+            }
+        }
+        
+        bucket.addLast(new Entry(key,value));
+
     }
 
     public String get(int key){
