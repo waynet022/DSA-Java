@@ -1,14 +1,27 @@
 package queues;
 
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class QueueMain {
     public static void main(String[] args){
 //        queueSample();
-        customQueue();
+//        customQueue();
+        LLQueue();
+    }
 
+    public static void LLQueue(){
+        LinkedListQueue queue = new LinkedListQueue();
+        for(int i = 1; i<4; i++)
+            queue.enqueue(4*i);
+
+        System.out.println(queue.toString());
+        System.out.println(queue.size());
+        queue.dequeue();
+        System.out.println(queue.toString());
+        System.out.println(queue.size());
     }
 
     public static void customQueue(){
