@@ -21,7 +21,8 @@ public class QueueMain {
         for(int i=0;i<6;i++)
             queue.enqueue(i+100);
         System.out.println(queue.toString());
-        queue.enqueue(1000);
+        while(!queue.isEmpty())
+            System.out.println(queue.dequeue());
         System.out.println(queue.toString());
     }
 

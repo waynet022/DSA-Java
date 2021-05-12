@@ -56,7 +56,7 @@ public class ArrayQueue {
         return this.size == this.queue.length;
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return this.size == 0;
     }
 
