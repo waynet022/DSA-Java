@@ -20,6 +20,8 @@ public class hashTableMain {
         table.put(11, "C");
         table.put(6, "A+");
         System.out.println(table.get(10));
+        table.remove(6);
+        table.remove(60);
         System.out.println("Complete");
     }
 

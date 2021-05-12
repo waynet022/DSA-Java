@@ -49,12 +49,16 @@ public class HashTable {
 
     public void remove(int key){
         int index = getIndexByKey(key);
-        for(Entry e: data[index]){
+        var bucket = data[index];
+        if(bucket==null)
+            throw new IllegalStateException();
+        for(Entry e: bucket){
             if(e.key == key){
-                data[index].remove(e);
+                bucket.remove(e);
                 return;
             }
         }
+        throw new IllegalStateException();
     }
 
     private int getIndexByKey(int key){
