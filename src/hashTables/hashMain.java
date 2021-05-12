@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class hashTables {
+public class hashMain {
     public static void main(String[] args){
 //        mapSample();
         String expression = "A graen apple";
