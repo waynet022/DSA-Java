@@ -1,15 +1,29 @@
 package hashTables;
 
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
-public class hashMain {
+public class hashTableMain {
     public static void main(String[] args){
 //        mapSample();
         String expression = "A graen apple";
 //        repeatingCharacter(expression);
-        nonRepeatingCharacter(expression);
+//        nonRepeatingCharacter(expression);
+        hashFunction();
+    }
+
+    public static void hashFunction(){
+        Map<String, String> map = new HashMap<>();
+        String id = "123456-A";
+        map.put(id, "Wayne");
+        System.out.println(hash(id));
+    }
+
+    public static int hash(String key){
+        int hash = 0;
+        for (var ch: key.toCharArray())
+            hash += ch;
+        return hash%100;
     }
 
     public static void nonRepeatingCharacter(String expression){

@@ -3,7 +3,7 @@ package hashSets;
 import java.util.HashSet;
 import java.util.Set;
 
-public class hashMain {
+public class hashSetMain {
     public static void main(String[] args){
 //        setSample();
         String expression = "a green apple";
