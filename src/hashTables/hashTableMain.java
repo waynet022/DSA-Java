@@ -9,7 +9,18 @@ public class hashTableMain {
         String expression = "A graen apple";
 //        repeatingCharacter(expression);
 //        nonRepeatingCharacter(expression);
-        hashFunction();
+//        hashFunction();
+        hashClassSample();
+    }
+
+    public static void hashClassSample(){
+        HashTable table = new HashTable();
+        table.put(6, "A");
+        table.put(8, "B");
+        table.put(11, "C");
+        table.put(6, "A+");
+        System.out.println(table.get(10));
+        System.out.println("Complete");
     }
 
     public static void hashFunction(){

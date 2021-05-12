@@ -30,20 +30,21 @@ public class HashTable {
                 return;
             }
         }
-        
+
         bucket.addLast(new Entry(key,value));
 
     }
 
     public String get(int key){
         int index = getIndexByKey(key);
-
-        for(Entry e: data[index]){
-            if(e.key == key)
-                return e.value;
+        var bucket = data[index];
+        if(bucket!=null){
+            for(Entry e: bucket){
+                if(e.key == key)
+                    return e.value;
+            }
         }
-
-        throw new IllegalStateException();
+        return null;
     }
 
     public void remove(int key){
