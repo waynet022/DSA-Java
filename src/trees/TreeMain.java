@@ -18,6 +18,7 @@ public class TreeMain {
 //        tree.traversePreOrder();
 //        tree.traverseInOrder();
 //        tree.traversePostOrder();
-        System.out.println(tree.height());
+//        System.out.println(tree.height());
+        System.out.println(tree.minimum());
     }
 }

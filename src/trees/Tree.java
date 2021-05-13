@@ -104,4 +104,14 @@ public class Tree {
         return 1 + Math.max(height(node.left),height(node.right));
     }
 
+    public int minimum(){
+        return minimum(this.root);
+    }
+
+    private int minimum(Node node){
+        if(node == null) throw new IllegalStateException();
+        if(node.left == null && node.right == null) return node.value;
+        return Math.min(Math.min(minimum(node.left), minimum(node.right)), node.value);
+    }
+
 }
