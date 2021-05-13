@@ -100,7 +100,7 @@ public class Tree {
 
     private int height(Node node){
         if(node == null) return -1;
-        if(node.left == null && node.right == null) return 0;
+        if(isLeaf((node))) return 0;
         return 1 + Math.max(height(node.left),height(node.right));
     }
 
@@ -110,8 +110,12 @@ public class Tree {
 
     private int minimum(Node node){
         if(node == null) throw new IllegalStateException();
-        if(node.left == null && node.right == null) return node.value;
+        if(isLeaf(node)) return node.value;
         return Math.min(Math.min(minimum(node.left), minimum(node.right)), node.value);
+    }
+
+    private boolean isLeaf(Node node){
+        return node.left == null && node.right == null;
     }
 
 }
