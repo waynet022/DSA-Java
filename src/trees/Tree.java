@@ -94,4 +94,13 @@ public class Tree {
         System.out.println(root.value);
     }
 
+    public int height(){
+        return height(this.root);
+    }
+
+    private int height(Node node){
+        if(node.left == null && node.right == null) return 0;
+        return 1 + Math.max(height(node.left),height(node.right));
+    }
+
 }
