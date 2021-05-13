@@ -52,14 +52,6 @@ public class Tree {
 
     }
 
-    private void traverse(Node subRoot, int value){
-        if(subRoot == null)  subRoot.value = value;
-        else{
-            var childNode = subRoot.value > value ? subRoot.left: subRoot.right;
-            traverse(childNode, value);
-        }
-    }
-
     public boolean find(int value){
         var current = this.root;
         while(current!=null){
