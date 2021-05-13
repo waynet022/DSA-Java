@@ -61,6 +61,11 @@ public class Tree {
     }
 
     public boolean find(int value){
+        var current = this.root;
+        while(current!=null){
+            if(current.value == value) return true;
+            current = current.value > value ? current.left : current.right;
+        }
         return false;
     }
 }
