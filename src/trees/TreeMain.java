@@ -14,8 +14,9 @@ public class TreeMain {
         tree.insert(9);
         tree.insert(8);
         tree.insert(10);
-        System.out.println("Complete");
         System.out.println(tree.find(4));
-        tree.traversePreOrder();
+//        tree.traversePreOrder();
+//        tree.traverseInOrder();
+        tree.traversePostOrder();
     }
 }
