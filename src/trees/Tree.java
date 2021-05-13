@@ -76,7 +76,7 @@ public class Tree {
         traverseInOrder(this.root);
     }
 
-    public void traverseInOrder(Node root){
+    private void traverseInOrder(Node root){
         if(root==null) return;
         traverseInOrder(root.left);
         System.out.println(root.value);
@@ -87,7 +87,7 @@ public class Tree {
         traversePostOrder(this.root);
     }
 
-    public void traversePostOrder(Node root){
+    private void traversePostOrder(Node root){
         if(root==null) return;
         traversePostOrder(root.left);
         traversePostOrder(root.right);
