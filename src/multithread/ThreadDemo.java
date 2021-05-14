@@ -1,17 +1,39 @@
 package multithread;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreadDemo {
     public static void show() {
 
 //        showMultiThread();
 //        joinThread();
-        cancelThread();
-
+//        cancelThread();
+        showStatus();
         System.out.println("File is ready to be scanned");
     }
 
+    public static void showStatus(){
+        var status = new DownloadStatus();
+        List<Thread> threads = new ArrayList<>();
+        for(int i = 0; i<10; i++){
+            Thread thread = new Thread(new DownloadFileTask(status));
+            thread.start();
+            threads.add(thread);
+        }
+        for(var thread: threads){
+            try{
+                thread.join();
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+        System.out.println(status.getTotalBytes());
+    }
+
     public static void cancelThread(){
-        Thread thread = new Thread(new DownloadFileTask());
+        var status = new DownloadStatus();
+        Thread thread = new Thread(new DownloadFileTask(status));
         thread.start();
 
         try {
@@ -26,7 +48,8 @@ public class ThreadDemo {
     /*
     waits for the thread to finish before continuing current thread
      */
-        Thread thread = new Thread(new DownloadFileTask());
+        var status = new DownloadStatus();
+        Thread thread = new Thread(new DownloadFileTask(status));
         thread.start();
 
         try {
@@ -37,8 +60,9 @@ public class ThreadDemo {
     }
 
     public static void showMultiThread(){
+        var status = new DownloadStatus();
         for(int i = 0; i<10; i++){
-            Thread thread = new Thread(new DownloadFileTask());
+            Thread thread = new Thread(new DownloadFileTask(status));
             thread.start();
         }
     }
