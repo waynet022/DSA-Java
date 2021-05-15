@@ -163,7 +163,12 @@ public class Tree {
         }
         getNodesAtDistance(node.left, distance-1, list);
         getNodesAtDistance(node.right, distance-1, list);
-
     }
 
+    public void traverseLevelOrder(){
+        for(int i=0; i<=height(); i++){
+            for(var value: getNodesAtDistance(i))
+                System.out.println(value);
+        }
+    }
 }
