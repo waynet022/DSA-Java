@@ -3,7 +3,23 @@ package trees;
 public class TreeMain {
     public static void main(String[] args){
 //        treeClassSample();
-        treeEquality();
+//        treeEquality();
+        treeDistance();
+    }
+
+    public static void treeDistance(){
+        Tree tree = new Tree();
+        tree.insert(7);
+        tree.insert(4);
+        tree.insert(1);
+        tree.insert(6);
+        tree.insert(9);
+        tree.insert(8);
+        tree.insert(10);
+//        tree.printNodesAtDistance(0);
+//        tree.printNodesAtDistance(1);
+
+        System.out.println(tree.getNodesAtDistance(2));
     }
 
     public static void treeClassSample(){

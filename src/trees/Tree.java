@@ -1,5 +1,7 @@
 package trees;
 
+import java.util.ArrayList;
+
 public class Tree {
     private class Node{
         private int value;
@@ -146,5 +148,22 @@ public class Tree {
 
     }
 
-    
+    public ArrayList<Integer> getNodesAtDistance(int distance){
+        ArrayList<Integer> list = new ArrayList<>();
+        getNodesAtDistance(this.root, distance, list);
+        return list;
+    }
+
+    private void getNodesAtDistance(Node node, int distance, ArrayList<Integer> list){
+        if(node == null) return;
+        if(distance == 0){
+            list.add(node.value);
+//            System.out.println(node.value);
+            return;
+        }
+        getNodesAtDistance(node.left, distance-1, list);
+        getNodesAtDistance(node.right, distance-1, list);
+
+    }
+
 }
