@@ -203,4 +203,16 @@ public class Tree {
 
         return size(node.right, count) +1;
     }
+
+    public int max(){
+        if(this.root == null) throw new IllegalStateException();
+        return max(this.root);
+    }
+
+    private int max(Node node){
+        if(node.right == null)
+            return node.value;
+        else
+            return max(node.right);
+    }
 }
