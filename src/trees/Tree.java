@@ -173,6 +173,7 @@ public class Tree {
     }
 
     public int countLeaves(){
+        if(this.root == null) return 0;
         return countLeaves(this.root, 0);
     }
 
@@ -185,5 +186,21 @@ public class Tree {
             return countLeaves(node.right, leaves);
         else
             return countLeaves(node.left, leaves);
+    }
+
+    public int size(){
+        if(this.root == null) return 0;
+        return size(this.root, 0);
+    }
+
+    private int size(Node node, int count){
+        if(node.left == null && node.right == null)
+            return count+1;
+        if(node.left != null && node.right != null)
+            return size(node.left, count) + 1 + size(node.right, count);
+        if(node.right == null)
+            return size(node.left, count) + 1;
+
+        return size(node.right, count) +1;
     }
 }
