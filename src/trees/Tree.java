@@ -215,4 +215,19 @@ public class Tree {
         else
             return max(node.right);
     }
+
+    public boolean contains(int value){
+        return contains(this.root, value);
+    }
+
+    private boolean contains(Node node, int value){
+        if(node == null)
+            return false;
+        if(node.value == value)
+            return true;
+        if(node.value < value)
+            return contains(node.right, value);
+        else
+            return contains(node.left, value);
+    }
 }

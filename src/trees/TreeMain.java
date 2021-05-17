@@ -25,6 +25,7 @@ public class TreeMain {
         System.out.println(tree.countLeaves());
         System.out.println(tree.size());
         System.out.println(tree.max());
+        System.out.println(tree.contains(12));
     }
 
     public static void breadthFirstSearch(){
