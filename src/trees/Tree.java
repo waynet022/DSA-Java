@@ -171,4 +171,19 @@ public class Tree {
                 System.out.println(value);
         }
     }
+
+    public int countLeaves(){
+        return countLeaves(this.root, 0);
+    }
+
+    private int countLeaves(Node node, int leaves){
+        if(node.left == null && node.right == null)
+            return leaves+1;
+        if(node.left != null && node.right != null)
+            return countLeaves(node.left, leaves) + countLeaves(node.right, leaves);
+        else if(node.left == null)
+            return countLeaves(node.right, leaves);
+        else
+            return countLeaves(node.left, leaves);
+    }
 }
