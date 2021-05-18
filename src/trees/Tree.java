@@ -230,4 +230,31 @@ public class Tree {
         else
             return contains(node.left, value);
     }
+
+    public boolean areSiblings(int value1, int value2){
+        if(this.root == null) return false;
+        if(value1 == value2) return false;
+
+        int small, big;
+        if(value1 > value2){
+            small = value2;
+            big = value1;
+        }
+        else{
+            small = value1;
+            big = value2;
+        }
+
+        return areSiblings(root, small, big);
+    }
+
+    private boolean areSiblings(Node node, int small, int big){
+        if(node.left == null || node.right == null)
+            return false;
+        if(node.left.value == small && node.right.value == big)
+            return true;
+        if(node.value > small && node.left.value > big)
+            return areSiblings(node.left, small, big);
+        return areSiblings(node.right, small, big);
+    }
 }
