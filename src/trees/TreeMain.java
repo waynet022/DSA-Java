@@ -26,7 +26,7 @@ public class TreeMain {
         System.out.println(tree.size());
         System.out.println(tree.max());
         System.out.println(tree.contains(12));
-        System.out.println(tree.areSiblings(1,6));
+        System.out.println(tree.areSiblings(1,2));
     }
 
     public static void breadthFirstSearch(){

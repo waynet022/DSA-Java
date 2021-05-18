@@ -253,7 +253,7 @@ public class Tree {
             return false;
         if(node.left.value == small && node.right.value == big)
             return true;
-        if(node.value > small && node.left.value > big)
+        if(node.value > small && node.value > big)
             return areSiblings(node.left, small, big);
         return areSiblings(node.right, small, big);
     }
