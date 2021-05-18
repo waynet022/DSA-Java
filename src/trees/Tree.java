@@ -1,6 +1,8 @@
 package trees;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Tree {
     private class Node{
@@ -256,5 +258,22 @@ public class Tree {
         if(node.value > small && node.value > big)
             return areSiblings(node.left, small, big);
         return areSiblings(node.right, small, big);
+    }
+
+    public List<Integer> getAncestors(int value){
+        if(this.root == null)
+            throw new IllegalStateException();
+        List<Integer> list = new LinkedList<>();
+        return getAncestors(this.root, value, list);
+    }
+
+    private List<Integer> getAncestors(Node node, int value, List<Integer> list){
+        if(node.value == value)
+            return list;
+        if(node.left == null && node.right == null)
+            return null;
+        list.add(node.value);
+        var next = node.value > value ? node.left : node.right;
+        return getAncestors(next, value, list);
     }
 }
