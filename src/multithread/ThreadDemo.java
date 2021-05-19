@@ -9,15 +9,41 @@ public class ThreadDemo {
 //        showMultiThread();
 //        joinThread();
 //        cancelThread();
-        showStatus();
+//        showStatus();
+        confinementExample();
+
         System.out.println("File is ready to be scanned");
     }
 
+    public static void confinementExample(){
+        List<Thread> threads = new ArrayList<>();
+        List<DownloadFileTask> tasks = new ArrayList<>();
+
+        for(int i = 0; i<10; i++){
+            var task = new DownloadFileTask();
+            tasks.add(task);
+            var thread = new Thread(task);
+            thread.start();
+            threads.add(thread);
+        }
+
+        for(var thread: threads){
+            try {
+                thread.join();
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
+        var totalBytes = tasks.stream().map(t -> t.getStatus().getTotalBytes()).reduce( Integer::sum);
+        System.out.println(totalBytes);
+
+    }
+
     public static void showStatus(){
-        var status = new DownloadStatus();
         List<Thread> threads = new ArrayList<>();
         for(int i = 0; i<10; i++){
-            Thread thread = new Thread(new DownloadFileTask(status));
+            Thread thread = new Thread(new DownloadFileTask());
             thread.start();
             threads.add(thread);
         }
@@ -28,12 +54,12 @@ public class ThreadDemo {
                 e.printStackTrace();
             }
         }
-        System.out.println(status.getTotalBytes());
+
     }
 
     public static void cancelThread(){
         var status = new DownloadStatus();
-        Thread thread = new Thread(new DownloadFileTask(status));
+        Thread thread = new Thread(new DownloadFileTask());
         thread.start();
 
         try {
@@ -49,7 +75,7 @@ public class ThreadDemo {
     waits for the thread to finish before continuing current thread
      */
         var status = new DownloadStatus();
-        Thread thread = new Thread(new DownloadFileTask(status));
+        Thread thread = new Thread(new DownloadFileTask());
         thread.start();
 
         try {
@@ -62,7 +88,7 @@ public class ThreadDemo {
     public static void showMultiThread(){
         var status = new DownloadStatus();
         for(int i = 0; i<10; i++){
-            Thread thread = new Thread(new DownloadFileTask(status));
+            Thread thread = new Thread(new DownloadFileTask());
             thread.start();
         }
     }
