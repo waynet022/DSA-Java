@@ -27,15 +27,21 @@ public class Numbers {
             return;
 
         int temp;
+        boolean isSorted;
 
-        for(int i=0; i<size-1; i++)
-            for(int j=i+1; j<size; j++)
-                if(list[i] > list[j]){
-                    temp = list[i];
-                    list[i] = list[j];
+        for(int i=0; i<size; i++) {
+            isSorted = true;
+            for (int j = 1; j < size - i; j++)
+                if (list[j - 1] > list[j]) {
+                    temp = list[j - 1];
+                    list[j - 1] = list[j];
                     list[j] = temp;
-                }
 
+                    isSorted = false;
+                }
+            if(isSorted)
+                return;
+        }
     }
 
 
