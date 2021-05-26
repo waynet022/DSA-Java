@@ -236,18 +236,8 @@ public class Tree {
     public boolean areSiblings(int value1, int value2){
         if(this.root == null) return false;
         if(value1 == value2) return false;
-
-        int small, big;
-        if(value1 > value2){
-            small = value2;
-            big = value1;
-        }
-        else{
-            small = value1;
-            big = value2;
-        }
-
-        return areSiblings(root, small, big);
+        
+        return value1 > value2 ? areSiblings(this.root, value2, value1): areSiblings(this.root, value1, value2);
     }
 
     private boolean areSiblings(Node node, int small, int big){
