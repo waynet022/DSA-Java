@@ -11,13 +11,24 @@ public class SortMain {
         list.add(3);
         System.out.println(list+"\n");
 
-        bubbleSort(list);
+//        bubbleSort(list);
+        selectionSort(list);
     }
 
     public static void bubbleSort(Numbers list){
         System.out.println("Bubble Sort");
         long start = System.nanoTime();
         list.bubbleSort();
+        long end = System.nanoTime();
+        long elapsedTime = end - start;
+        System.out.println("Time: "+elapsedTime);
+        System.out.println(list);
+    }
+
+    public static void selectionSort(Numbers list){
+        System.out.println("Selection Sort");
+        long start = System.nanoTime();
+        list.selectionSort();
         long end = System.nanoTime();
         long elapsedTime = end - start;
         System.out.println("Time: "+elapsedTime);

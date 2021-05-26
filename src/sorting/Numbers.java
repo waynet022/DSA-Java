@@ -44,5 +44,24 @@ public class Numbers {
         }
     }
 
+    public void selectionSort(){
+        if(this.size == 0 || this.size == 1)
+            return;
 
+        int minIndex;
+        int temp;
+
+        for(int i=0; i<size; i++){
+            minIndex = i;
+            for(int j=i; j<size;j++){
+                if(list[j]<list[minIndex]){
+                    minIndex = j;
+                }
+            }
+            temp = list[i];
+            list[i] = list[minIndex];
+            list[minIndex] = temp;
+
+        }
+    }
 }
