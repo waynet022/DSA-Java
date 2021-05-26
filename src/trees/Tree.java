@@ -236,7 +236,7 @@ public class Tree {
     public boolean areSiblings(int value1, int value2){
         if(this.root == null) return false;
         if(value1 == value2) return false;
-        
+
         return value1 > value2 ? areSiblings(this.root, value2, value1): areSiblings(this.root, value1, value2);
     }
 
@@ -263,7 +263,7 @@ public class Tree {
         if(node.left == null && node.right == null)
             return null;
         list.add(node.value);
-        var next = node.value > value ? node.left : node.right;
-        return getAncestors(next, value, list);
+
+        return node.value > value? getAncestors(node.left, value, list): getAncestors(node.right, value, list);
     }
 }
