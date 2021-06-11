@@ -55,14 +55,31 @@ public class Heap {
         if(isEmpty()) return;
         heapArray[0] = heapArray[size-1];
         size--;
-
+        int index = 0;
+        while(isLessThanChildren(index)){
+            index = bubbleDown(index);
+        }
     }
 
-    public void bubbleDown(int index){
+    private boolean isLessThanChildren(int index){
         int leftChildIndex = index * 2 + 1;
         int rightChildIndex = index * 2 + 2;
-        
-        if(leftChildIndex >= size) return;
+
+        if(leftChildIndex >= size) return false;
+
+        boolean isLeftGreater = isGreaterThanParent(leftChildIndex);
+        boolean isRightGreater = false;
+
+        if(rightChildIndex < size) isRightGreater = isGreaterThanParent(rightChildIndex);
+
+        return isLeftGreater && isRightGreater;
+    }
+
+    private int bubbleDown(int index){
+        int leftChildIndex = index * 2 + 1;
+        int rightChildIndex = index * 2 + 2;
+
+        if(leftChildIndex >= size) return index;
 
         int swapIndex = rightChildIndex;
         if(rightChildIndex >= size ||heapArray[leftChildIndex] > heapArray[rightChildIndex])
@@ -71,6 +88,8 @@ public class Heap {
         int temp = heapArray[index];
         heapArray[index] = heapArray[swapIndex];
         heapArray[swapIndex] = temp;
+
+        return swapIndex;
     }
 
     public boolean isEmpty(){
